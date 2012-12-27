@@ -89,6 +89,16 @@ namespace GuildWars2API.Controllers
             }
         }
 
+        public HttpResponseMessage PostTouristAttraction(string name)
+        {
+            TouristAttraction ta = new TouristAttraction();
+            ta.Name = "Derp";
+
+            db.TouristAttractions.Add(ta);
+            db.SaveChanges();
+            return Request.CreateResponse(HttpStatusCode.Created);
+        }
+
         // DELETE api/Default1/5
         public HttpResponseMessage DeleteTouristAttraction(int id)
         {

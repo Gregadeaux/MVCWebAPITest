@@ -14,16 +14,12 @@
             var long = $('#longitude').val();
 
             $.ajax({
-                url: "api/Attractions/?longitude=" + long + "&latitude=" + lat,
-                type: "GET",
+                url: "api/Attractions",
+                type: "POST",
+                data: "{Name:GREG,Location:null,Reviews:null}",
+                dataType: "json",
                 success: function (data) {
-                    if (data == null) {
-                        $('#attractionName').html("No attractions to search");
-                    }
-                    else {
-                        $('#attractionName').html("You should visit " + data.Name);
-                        displayMap(data.Location.Geography.WellKnownText, data.Name);
-                    }
+
                 }
             });
         }
